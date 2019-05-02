@@ -1,0 +1,9 @@
+---
+
+- name: To inserting new user
+  import_tasks: grant.yml
+  when: action == "grant"
+ 
+- name: to remove user
+  import_tasks: revoke.yml
+  when: action == "revoke"

@@ -1,0 +1,17 @@
+---
+
+- name: To add new user
+  user:
+    name: "{{ user_name }}"
+    comment: "{{ user_des }}"
+    shell: /bin/bash
+  tags:
+    - add
+
+- name: To give Access
+  authorized_key:
+    user: "{{ user_name }}"
+    state: present
+    key: "{{ lookup('file', '../../../sshkey/{{ user_name }}/id_rsa_2048_SKBPR_a') }}"
+  tags:
+    - grant

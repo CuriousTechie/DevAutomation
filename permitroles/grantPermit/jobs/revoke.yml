@@ -1,0 +1,17 @@
+---
+
+- name: To SSH Access
+  authorized_key:
+    user: "{{ user_name }}"
+    state: absent
+    key: "{{ lookup('file', '../../../sshkey/{{ user_name }}/id_rsa_2048_SKBPR_a') }}"
+  tags:
+    - revoke
+
+- name: To Remove user
+  user:
+    name: "{{ user_name }}"
+    state: absent
+    remove: yes
+  tags:
+    - remove
