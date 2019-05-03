@@ -1,4 +1,4 @@
-# DevAutomation #Instuctions to run commnads
+# DevAutomation #Instructions to run commnads
 1)In order to add new user and to grant SSH access kindly use the command:
 ansible-playbook -i inventory/ -e "action=grant" playbooks/ssh.yml
 
